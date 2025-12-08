@@ -1,0 +1,519 @@
+/* Container chính của trang đăng nhập */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animation background blockchain */
+.blockchain-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Các khối cube bay lơ lửng */
+.cube {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  border: 2px solid rgba(99, 102, 241, 0.2);
+  animation: float 20s infinite ease-in-out;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.cube:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 15s;
+}
+
+.cube:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  animation-delay: 2s;
+  animation-duration: 18s;
+}
+
+.cube:nth-child(3) {
+  top: 80%;
+  left: 20%;
+  animation-delay: 4s;
+  animation-duration: 20s;
+}
+
+.cube:nth-child(4) {
+  top: 30%;
+  left: 70%;
+  animation-delay: 6s;
+  animation-duration: 16s;
+}
+
+.cube:nth-child(5) {
+  top: 50%;
+  left: 40%;
+  animation-delay: 8s;
+  animation-duration: 22s;
+}
+
+/* Animation bay lơ lửng */
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(50px, -50px) rotate(90deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-30px, 30px) rotate(180deg);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate(30px, 50px) rotate(270deg);
+    opacity: 0.6;
+  }
+}
+
+/* Card đăng nhập */
+.login-card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 50px 40px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  backdrop-filter: blur(20px);
+  animation: slideUp 0.6s ease-out;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Border gradient ở top của card */
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Animation trượt lên */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header của card */
+.card-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Logo xoay 3D */
+.logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+  animation: rotate3d 3s infinite ease-in-out;
+}
+
+@keyframes rotate3d {
+  0%, 100% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(180deg);
+  }
+}
+
+.logo i {
+  font-size: 40px;
+  color: white;
+}
+
+.card-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.card-header p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* Form đăng nhập */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Thông tin wallet đã kết nối */
+.wallet-info {
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid var(--success-color);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--success-color);
+  font-size: 14px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.wallet-address {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.wallet-address i {
+  font-size: 20px;
+}
+
+.wallet-address p {
+  margin: 0;
+}
+
+/* Nút đăng xuất */
+.btn-disconnect {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  white-space: nowrap;
+}
+
+.btn-disconnect:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+  background: linear-gradient(135deg, #b91c1c, #dc2626);
+}
+
+.btn-disconnect:active {
+  transform: translateY(0);
+}
+
+.btn-disconnect i {
+  font-size: 14px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Nút MetaMask chính */
+.btn-metamask-main {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #f6851b, #e2761b);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s;
+  box-shadow: 0 10px 25px rgba(246, 133, 27, 0.3);
+}
+
+.btn-metamask-main:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(246, 133, 27, 0.4);
+  background: linear-gradient(135deg, #e2761b, #d1661a);
+}
+
+.btn-metamask-main:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-metamask-main:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-metamask-main i.fab {
+  font-size: 24px;
+}
+
+.btn-metamask-main i.fa-arrow-right {
+  margin-left: auto;
+  transition: transform 0.3s;
+}
+
+.btn-metamask-main:hover i.fa-arrow-right {
+  transform: translateX(5px);
+}
+
+/* Thông tin MetaMask */
+.metamask-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(99, 102, 241, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+}
+
+.info-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.info-text i {
+  color: var(--primary-color);
+  font-size: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.install-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+  align-self: flex-start;
+}
+
+.install-link:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+.install-link i {
+  font-size: 16px;
+}
+
+/* Features section */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 400px;
+  z-index: 1;
+  animation: slideUp 0.6s ease-out 0.2s both;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 25px;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 16px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+}
+
+.feature-item:hover {
+  transform: translateX(10px);
+  background: rgba(30, 41, 59, 0.8);
+  border-color: var(--primary-color);
+}
+
+.feature-item i {
+  font-size: 36px;
+  color: var(--primary-color);
+  min-width: 50px;
+}
+
+.feature-item h3 {
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.feature-item p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Notification styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+  animation: slideInRight 0.3s ease-out;
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 300px;
+}
+
+.notification-success {
+  background: var(--success-color);
+  color: white;
+}
+
+.notification-error {
+  background: var(--danger-color);
+  color: white;
+}
+
+.notification-info {
+  background: #3b82f6;
+  color: white;
+}
+
+.notification i {
+  font-size: 20px;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .login-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .features {
+    flex-direction: row;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .feature-item {
+    flex: 1;
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    padding: 40px 30px;
+  }
+
+  .features {
+    flex-direction: column;
+  }
+
+  .social-login {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 15px;
+  }
+
+  .login-card {
+    padding: 30px 20px;
+  }
+
+  .card-header h1 {
+    font-size: 24px;
+  }
+
+  .logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .logo i {
+    font-size: 35px;
+  }
+}
