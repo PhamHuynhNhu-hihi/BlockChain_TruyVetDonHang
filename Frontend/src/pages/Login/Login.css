@@ -190,7 +190,6 @@
   padding: 16px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
   color: var(--success-color);
   font-size: 14px;
@@ -198,51 +197,13 @@
   animation: fadeIn 0.3s ease-out;
 }
 
-.wallet-address {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex: 1;
-}
-
-.wallet-address i {
+.wallet-info i {
   font-size: 20px;
 }
 
-.wallet-address p {
+.wallet-info p {
   margin: 0;
-}
-
-/* Nút đăng xuất */
-.btn-disconnect {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  background: linear-gradient(135deg, #dc2626, #ef4444);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-  white-space: nowrap;
-}
-
-.btn-disconnect:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
-  background: linear-gradient(135deg, #b91c1c, #dc2626);
-}
-
-.btn-disconnect:active {
-  transform: translateY(0);
-}
-
-.btn-disconnect i {
-  font-size: 14px;
+  flex: 1;
 }
 
 @keyframes fadeIn {

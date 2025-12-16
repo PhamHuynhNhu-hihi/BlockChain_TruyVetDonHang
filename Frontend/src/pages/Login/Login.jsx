@@ -64,16 +64,6 @@ const Login = () => {
   };
 
   /**
-   * Xử lý ngắt kết nối wallet
-   */
-  const handleDisconnect = () => {
-    setWalletAddress(null);
-    localStorage.removeItem('walletAddress');
-    localStorage.removeItem('token');
-    showNotification('Đã ngắt kết nối với MetaMask', 'info');
-  };
-
-  /**
    * Xử lý kết nối MetaMask và đăng nhập
    */
   const handleMetaMaskLogin = async () => {
@@ -150,14 +140,8 @@ const Login = () => {
           {/* Hiển thị địa chỉ wallet nếu đã kết nối */}
           {walletAddress && (
             <div className="wallet-info">
-              <div className="wallet-address">
-                <i className="fas fa-check-circle"></i>
-                <p>Đã kết nối: {walletAddress.substring(0, 10)}...{walletAddress.substring(walletAddress.length - 8)}</p>
-              </div>
-              <button className="btn-disconnect" onClick={handleDisconnect}>
-                <i className="fas fa-sign-out-alt"></i>
-                Đăng xuất
-              </button>
+              <i className="fas fa-check-circle"></i>
+              <p>Đã kết nối: {walletAddress.substring(0, 10)}...{walletAddress.substring(walletAddress.length - 8)}</p>
             </div>
           )}
 
